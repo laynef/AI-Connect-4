@@ -3,15 +3,15 @@ import { PlayerType } from "./types";
 export class Grid {
     public board: PlayerType[][];
     public winningAmount: number = 4;
-    
+
     constructor() {
         this.board = [
-            [PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty],
-            [PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty],
-            [PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty],
-            [PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty],
-            [PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty],
-            [PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty,PlayerType.Empty]
+            [PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty],
+            [PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty],
+            [PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty],
+            [PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty],
+            [PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty],
+            [PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty]
         ]
     }
 
@@ -83,7 +83,7 @@ export class Grid {
 
     private isIn(array: PlayerType[], player: PlayerType, offset: number): PlayerType {
         for (let i = 0; i < offset; i++) {
-            let temp = array.slice(i, i + 4);
+            const temp = array.slice(i, i + 4);
             if (temp.every(position => position === player)) return player;
         }
 
