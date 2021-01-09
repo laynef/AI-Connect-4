@@ -1,5 +1,4 @@
 import { Grid } from "./grid";
-import { Position } from "./types";
 
 export class AI {
     public grid: Grid;
