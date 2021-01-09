@@ -1,5 +1,5 @@
 export enum PlayerType {
     Player,
-    Compueter,
+    Computer,
     Empty
 }

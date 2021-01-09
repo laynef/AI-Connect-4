@@ -2,6 +2,7 @@ import { PlayerType } from "./types";
 
 export class Grid {
     public board: PlayerType[][];
+    public winningAmount: number = 4;
     
     constructor() {
         this.board = [
@@ -50,6 +51,7 @@ export class Grid {
         for (let x = 0; x < this.board.length; x++) {
             if (this.inRow(x, player) !== PlayerType.Empty) return player;
         }
+
         return PlayerType.Empty;
     }
 
@@ -57,6 +59,7 @@ export class Grid {
         for (let y = 0; y < this.board[0].length; y++) {
             if (this.inColumn(y, player) !== PlayerType.Empty) return player;
         }
+
         return PlayerType.Empty;
     }
 
@@ -65,7 +68,7 @@ export class Grid {
     }
 
     private inRow(x: number, player: PlayerType): PlayerType {
-        return this.isIn(this.board[x], player, this.board[0].length - 4);
+        return this.isIn(this.board[x], player, this.board[0].length - this.winningAmount);
     }
 
     private inColumn(y: number, player: PlayerType): PlayerType {
@@ -75,14 +78,15 @@ export class Grid {
             column.push(this.get(x, y));
         }
 
-        return this.isIn(column, player, this.board.length - 4);
+        return this.isIn(column, player, this.board.length - this.winningAmount);
     }
 
     private isIn(array: PlayerType[], player: PlayerType, offset: number): PlayerType {
-        for (let i = 0; i <= offset; i++) {
+        for (let i = 0; i < offset; i++) {
             let temp = array.slice(i, i + 4);
             if (temp.every(position => position === player)) return player;
         }
+
         return PlayerType.Empty;
     }
 }
