@@ -14,14 +14,7 @@ export class ConnectFour {
         this.difficulty = difficulty;
     }
 
-    move(y?: number): PlayerType {
-        if (this.player === PlayerType.Player && y!) {
-            this.grid.move(y, this.player);
-        } else {
-            const ai = new AI(this.grid);
-            this.grid.move(ai.move(this.difficulty), this.player);
-        }
-
+    public move(y?: number): PlayerType {
         const winner: PlayerType = this.grid.isWinner(this.player);
         if (winner !== PlayerType.Empty) {
             return winner;
@@ -29,10 +22,17 @@ export class ConnectFour {
             this.player = this.switchPlayer();
         }
 
+        if (this.player === PlayerType.Player && y!) {
+            this.grid.move(y, this.player);
+        } else {
+            const ai = new AI(this.grid);
+            this.grid.move(ai.move(this.difficulty), this.player);
+        }
+
         return PlayerType.Empty;
     }
 
-    switchPlayer(): PlayerType {
+    private switchPlayer(): PlayerType {
         return this.player === PlayerType.Player ? PlayerType.Computer : PlayerType.Player;
     }
 }
