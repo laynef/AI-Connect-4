@@ -1,17 +1,17 @@
 import { AI } from "./ai";
 import { Grid } from "./grid";
-import { PlayerType, Diffulty } from "./types";
+import { PlayerType, Difficulty } from "./types";
 
 
 export class ConnectFour {
     public grid: Grid;
-    public diffulty: Diffulty;
+    public difficulty: Difficulty;
     public player: PlayerType;
 
-    constructor(diffulty: Diffulty) {
+    constructor(difficulty: Difficulty) {
         this.grid = new Grid();
         this.player = PlayerType.Player;
-        this.diffulty = diffulty;
+        this.difficulty = difficulty;
     }
 
     move(y?: number): PlayerType {
@@ -19,7 +19,7 @@ export class ConnectFour {
             this.grid.move(y, this.player);
         } else {
             const ai = new AI(this.grid);
-            this.grid.move(ai.move(this.diffulty), this.player);
+            this.grid.move(ai.move(this.difficulty), this.player);
         }
 
         const winner: PlayerType = this.grid.isWinner(this.player);

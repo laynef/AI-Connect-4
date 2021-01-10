@@ -4,7 +4,7 @@ export enum PlayerType {
     Empty
 }
 
-export enum Diffulty {
+export enum Difficulty {
     Beatable,
     Unbeatable
 }
