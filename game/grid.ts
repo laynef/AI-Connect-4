@@ -1,9 +1,10 @@
 import { PlayerType } from "./types";
 
+
 export class Grid {
     public board: PlayerType[][];
     public winningAmount: number = 4;
-
+    
     constructor() {
         this.board = [
             [PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty, PlayerType.Empty],
@@ -64,6 +65,13 @@ export class Grid {
     }
 
     private checkDiagnials(player: PlayerType): PlayerType {
+        for (let x = 0; x < this.board.length; x++) {
+            for (let y = 0; y < this.board[x].length; y++) {
+                if (this.get(x, y) === player && this.get(x + 1, y + 1) === player && this.get(x + 2, y + 2) === player && this.get(x + 3, y + 3) === player) return player;
+                if (this.get(x, y) === player && this.get(x + 1, y - 1) === player && this.get(x + 2, y - 2) === player && this.get(x + 3, y - 3) === player) return player;
+            }
+        }
+
         return PlayerType.Empty;
     }
 

@@ -1,5 +1,6 @@
 import { Grid } from "./grid";
 
+
 export class AI {
     public grid: Grid;
 

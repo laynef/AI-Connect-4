@@ -20,8 +20,9 @@ export class ConnectFour {
             this.grid.move(ai.bestMove(), this.player);
         }
 
-        if (this.grid.isWinner(this.player) !== PlayerType.Empty) {
-            return this.player;
+        const winner: PlayerType = this.grid.isWinner(this.player);
+        if (winner !== PlayerType.Empty) {
+            return winner;
         } else {
             this.player = this.switchPlayer();
         }
