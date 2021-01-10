@@ -3,3 +3,8 @@ export enum PlayerType {
     Computer,
     Empty
 }
+
+export enum Diffulty {
+    Beatable,
+    Unbeatable
+}

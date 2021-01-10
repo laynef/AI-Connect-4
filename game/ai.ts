@@ -1,5 +1,5 @@
 import { Grid } from "./grid";
-import { PlayerType } from "./types";
+import { Diffulty, PlayerType } from "./types";
 
 
 export class AI {
@@ -9,7 +9,16 @@ export class AI {
         this.grid = grid;
     }
 
+    public move(diffulty: Diffulty): number {
+        if (diffulty === Diffulty.Beatable) return this.randomMove();
+        else return this.bestMove();
+    }
+
     public bestMove(): number {
+        return 0;
+    }
+
+    public randomMove(): number {
         const possibilites = this.allPossibleLocations();
         const index = Math.floor(Math.random() * possibilites.length);
         return possibilites[index];
