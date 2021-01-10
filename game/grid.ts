@@ -49,24 +49,24 @@ export class Grid {
     }
 
     private checkRows(player: PlayerType): PlayerType {
-        for (let x = 0; x < this.board.length; x++) {
-            if (this.inRow(x, player) !== PlayerType.Empty) return player;
+        for (let y = 0; y < this.board.length; y++) {
+            if (this.inRow(y, player) !== PlayerType.Empty) return player;
         }
 
         return PlayerType.Empty;
     }
 
     private checkColumns(player: PlayerType): PlayerType {
-        for (let y = 0; y < this.board[0].length; y++) {
-            if (this.inColumn(y, player) !== PlayerType.Empty) return player;
+        for (let x = 0; x < this.board[0].length; x++) {
+            if (this.inColumn(x, player) !== PlayerType.Empty) return player;
         }
 
         return PlayerType.Empty;
     }
 
     private checkDiagnials(player: PlayerType): PlayerType {
-        for (let x = 0; x < this.board.length; x++) {
-            for (let y = 0; y < this.board[x].length; y++) {
+        for (let y = 0; y < this.board.length; y++) {
+            for (let x = 0; x < this.board[y].length; x++) {
                 if (this.get(x, y) === player && this.get(x + 1, y + 1) === player && this.get(x + 2, y + 2) === player && this.get(x + 3, y + 3) === player) return player;
                 if (this.get(x, y) === player && this.get(x + 1, y - 1) === player && this.get(x + 2, y - 2) === player && this.get(x + 3, y - 3) === player) return player;
             }
@@ -79,10 +79,10 @@ export class Grid {
         return this.isIn(this.board[x], player, this.board[0].length - this.winningAmount);
     }
 
-    private inColumn(y: number, player: PlayerType): PlayerType {
+    private inColumn(x: number, player: PlayerType): PlayerType {
         const column: PlayerType[] = [];
 
-        for (let x = 0; x < this.board.length; x++) {
+        for (let y = 0; y < this.board.length; y++) {
             column.push(this.get(x, y));
         }
 

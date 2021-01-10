@@ -30,7 +30,7 @@ export class ConnectFour {
         return PlayerType.Empty;
     }
 
-    switchPlayer() {
+    switchPlayer(): PlayerType {
         return this.player === PlayerType.Player ? PlayerType.Computer : PlayerType.Player;
     }
 }
