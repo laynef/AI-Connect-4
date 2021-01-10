@@ -18,8 +18,6 @@ export class ConnectFour {
         const winner: PlayerType = this.grid.isWinner(this.player);
         if (winner !== PlayerType.Empty) {
             return winner;
-        } else {
-            this.player = this.switchPlayer();
         }
 
         if (this.player === PlayerType.Player && y!) {
@@ -28,6 +26,8 @@ export class ConnectFour {
             const ai = new AI(this.grid);
             this.grid.move(ai.move(this.difficulty), this.player);
         }
+
+        this.switchPlayer();
 
         return PlayerType.Empty;
     }

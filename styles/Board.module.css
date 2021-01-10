@@ -1,0 +1,42 @@
+.container,
+.row,
+.pieceContainer,
+.emptyPiece,
+.pieceContainer,
+.computerPiece {
+    display: flex;
+}
+
+.container {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.pieceContainer {
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+}
+
+.emptyPiece,
+.pieceContainer,
+.computerPiece {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+}
+
+.emptyPiece {
+    background-color: white;
+}
+
+.playerPiece {
+    background-color: red;
+}
+
+.computerPiece {
+    background-color: yellow;
+}

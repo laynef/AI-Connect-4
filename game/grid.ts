@@ -21,7 +21,7 @@ export class Grid {
     }
 
     public set(x: number, y: number, player: PlayerType) {
-        this.board[x][y] = player;
+        this.board[y][x] = player;
     }
 
     public move(y: number, player: PlayerType) {
